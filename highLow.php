@@ -1,10 +1,8 @@
 <?php
 	
 	// Initial Game Prompting to start game logic.
-
 	fwrite(STDOUT, "Do you wanna play a game? y/n" . PHP_EOL);
-	$play = trim(fgets(STDIN));
-	
+	$play = trim(fgets(STDIN));	
 	if ($play = "y") {
 		highLowLogic();
 	}
