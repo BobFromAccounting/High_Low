@@ -2,7 +2,7 @@
 
 	function highLowLogic () {
 		$randomNumber = rand(1, 100);
-		fwrite(STDOUT, "Guess a Number!" . PHP_EOL);
+		fwrite(STDOUT, "Guess a number between 1 and 100!" . PHP_EOL);
 		$guess = fgets(STDIN);
 		$guessCount = 0;
 		
@@ -43,9 +43,11 @@
 		$replay = false;
 	}
 
+	fwrite(STDOUT, "Do you wanna play a game? y/n" . PHP_EOL);
+	$play = trim(fgets(STDIN));
+	
+	if ($play = "y") {
 	highLowLogic();
-
-
-
+	}
 
 ?>
