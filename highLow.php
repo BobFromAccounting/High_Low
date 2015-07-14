@@ -9,10 +9,8 @@
 			fwrite(STDOUT, "Guess a number between {$argv[1]} and {$argv[2]}!" . PHP_EOL);			
 			$random = randomNumberSet($argv[1], $argv[2]);
 		} else if ($argc == 1) {
-			fwrite(STDOUT, "Please provide a minimum starting number:" . PHP_EOL);
-			$minimum = trim(fgets(STDIN));
-			fwrite(STDOUT, "Please provide a maximum starting number:" . PHP_EOL);
-			$maximum = trim(fgets(STDIN));
+			$minimum = setMinimum();
+			$maximum = setMaximum();
 			fwrite(STDOUT, "Guess a number between $minimum and $maximum!" . PHP_EOL);			
 			$random = randomNumberSet($minimum, $maximum);
 		}
@@ -58,14 +56,23 @@
 		fwrite(STDOUT, "Would you like to play again? y/n" . PHP_EOL);
 		$replay = trim(fgets(STDIN));
 		if ($replay == "y") {
-			fwrite(STDOUT, "Please provide a minimum starting number:" . PHP_EOL);
-			$minimum = trim(fgets(STDIN));
-			fwrite(STDOUT, "Please provide a maximum starting number:" . PHP_EOL);
-			$maximum = trim(fgets(STDIN));
+			$minimum = setMinimum();
+			$maximum = setMaximum();
 			fwrite(STDOUT, "Guess a number between $minimum and $maximum!" . PHP_EOL);
 			$random = randomNumberSet($minimum, $maximum);
 			highLowLogic($random);
 		}
 	}
 
+	function setMinimum () {
+		fwrite(STDOUT, "Please provide a minimum starting number:" . PHP_EOL);
+		$setMin = trim(fgets(STDIN));
+		return $setMin;
+	}
+
+	function setMaximum () {
+		fwrite(STDOUT, "Please provide a maximum starting number:" . PHP_EOL);
+		$setMax = trim(fgets(STDIN));
+		return $setMax;
+	}
 ?>
