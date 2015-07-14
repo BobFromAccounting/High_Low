@@ -17,8 +17,8 @@
 	}
 
 	fwrite(STDOUT, "Finally, please enter the number you would like to increment by: (i.e. 5 - this will increment the digits displayed by 5, every time.)" . PHP_EOL);
-	$increment = fgets(STDIN);
-	if ($increment == "\n") {
+	$increment = trim(fgets(STDIN));
+	if ($increment == "\n" || $increment == 0) {
 		$increment = 1;
 	}
 	
